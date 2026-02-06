@@ -186,7 +186,7 @@
 
             <a href="#projects" class="btn">View Projects</a>
 
-            <a href="c:\Users\shaik_lslrhvy\OneDrive\Documents\SONU\Shaik_Badru_Basha_Resume_2.pdf" class="btn" download>
+            <a id="download-resume" href="resume/Shaik_Badru_Basha_Resume_2.pdf" class="btn" download="Shaik_Badru_Basha_Resume_2.pdf">
                 Download Resume
             </a>
         </div>
@@ -312,3 +312,37 @@
 
 </body>
 </html>
+
+<script>
+// Force download via fetch to ensure download rather than inline open (when served)
+document.addEventListener('DOMContentLoaded', function () {
+    const btn = document.getElementById('download-resume');
+    if (!btn) return;
+    btn.addEventListener('click', function (e) {
+        // Only run if served over http/https
+        const href = btn.getAttribute('href');
+        if (!href) return;
+        if (!/^https?:\/\//i.test(location.href) && location.protocol !== 'file:') return; // allow default for other protocols
+        e.preventDefault();
+        fetch(href).then(resp => {
+            if (!resp.ok) throw new Error('Network response was not ok');
+            return resp.blob();
+        }).then(blob => {
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = url;
+            // Use the download attribute if present on the original link
+            const filename = btn.getAttribute('download') || href.split('/').pop();
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            a.remove();
+        }).catch(() => {
+            // Fallback: navigate to file (browser may open inline)
+            window.location.href = href;
+        });
+    });
+});
+</script>
