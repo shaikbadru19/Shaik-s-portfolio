@@ -1,16 +1,12 @@
 {
   "version": 2,
-  "builds": [
+  "public": true,
+  "cleanUrls": false,
+  "trailingSlash": false,
+  "rewrites": [
     {
-      "src": "profile.html",
-      "use": "@vercel/static"
+      "source": "/",
+      "destination": "/profile.html"
     }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
-    }
-  ],
-  "env": {}
+  ]
 }
