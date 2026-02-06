@@ -1,0 +1,190 @@
+/* ================= GLOBAL ENHANCEMENTS ================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+.section {
+    position: relative;
+}
+
+/* Soft background glow */
+.section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top, rgba(56,189,248,0.08), transparent 60%);
+    z-index: -1;
+}
+
+/* Headings Animation */
+.title {
+    font-size: 32px;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+.title::after {
+    content: "";
+    width: 60px;
+    height: 3px;
+    background: #38bdf8;
+    display: block;
+    margin: 8px auto 0;
+    border-radius: 5px;
+}
+
+
+/* ================= CARDS ================= */
+
+.card {
+    transition: all 0.4s ease;
+    border: 1px solid rgba(56,189,248,0.1);
+    backdrop-filter: blur(10px);
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 0 25px rgba(56,189,248,0.3);
+}
+
+
+/* ================= BUTTONS ================= */
+
+.btn {
+    background: linear-gradient(135deg, #38bdf8, #6366f1);
+    color: #020617;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(56,189,248,0.5);
+}
+
+
+/* ================= PROFILE IMAGE ================= */
+
+.profile-pic img {
+    transition: 0.4s ease;
+    box-shadow: 0 0 30px rgba(56,189,248,0.4);
+}
+
+.profile-pic img:hover {
+    transform: scale(1.08) rotate(2deg);
+}
+
+
+/* ===== CONTACT SECTION ===== */
+
+.contact {
+    min-height: 100vh;
+}
+
+.contact-box {
+    max-width: 450px;
+    margin: auto;
+    padding: 30px;
+    background: #020617;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(56,189,248,0.2);
+}
+
+/* Form */
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    margin: 12px 0;
+    padding: 12px 15px;
+    background: transparent;
+    border: 1px solid #1e293b;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 15px;
+    outline: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #38bdf8;
+    box-shadow: 0 0 8px #38bdf8;
+}
+
+/* Button */
+
+.send-btn {
+    width: 100%;
+    margin-top: 15px;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #38bdf8, #6366f1);
+    color: #020617;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.send-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #38bdf8;
+}
+
+/* Social Icons */
+
+.contact-social {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.contact-social a {
+    width: 90px;
+    padding: 10px 5px;
+    text-align: center;
+    background: #020617;
+    border-radius: 12px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.contact-social a i {
+    font-size: 20px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.contact-social a:hover {
+    background: #38bdf8;
+    color: #020617;
+    transform: translateY(-5px);
+}
+
+/* ================= SKILLS ================= */
+
+.skills-box span {
+    transition: 0.3s ease;
+    border: 1px solid rgba(56,189,248,0.15);
+}
+
+.skills-box span:hover {
+    background: #38bdf8;
+    color: #020617;
+    transform: translateY(-4px);
+    box-shadow: 0 0 15px #38bdf8;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+    background: linear-gradient(135deg, #020617, #020617, #0f172a);
+    border-top: 1px solid rgba(56,189,248,0.2);
+}
